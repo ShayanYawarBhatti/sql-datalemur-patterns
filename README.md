@@ -1,4 +1,4 @@
-# SQL Patterns (DataLemur Practice)
+# SQL Patterns (DataLemur Practice: Top 50)
 
 A curated collection of **50 SQL interview-style solutions**, organized by **reusable patterns** (window functions, ranking, retention, sessionization, time-series growth, etc.).
 
