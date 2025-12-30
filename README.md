@@ -20,20 +20,21 @@ This repo is intentionally structured to be **easy for recruiters and interviewe
 ---
 
 ## Featured
-If you only review a few, start here (most representative of common interview patterns):
 
-1. Active User Retention (Facebook) — Hard  
-2. Y-on-Y Growth Rate (Wayfair) — Hard  
-3. Advertiser Status (Facebook) — Hard  
-4. Consecutive Filing Years (Intuit) — Hard  
-5. Marketing Touch Streak (Snowflake) — Hard  
-6. Repeated Payments (Stripe) — Hard  
-7. Median Google Search Frequency (Google) — Hard  
-8. Tweets' Rolling Averages (Twitter) — Medium  
-9. User's Third Transaction (Uber) — Medium  
-10. User Shopping Sprees (Amazon) — Medium  
-11. Second Highest Salary (FAANG) — Medium  
-12. Top Three Salaries (FAANG) — Medium  
+If you only review a few, start here:
+
+1. [Histogram of Tweets (Twitter — Easy)](./featured/01_agg-histogram-of-tweets__twitter__easy.sql)
+2. [Laptop vs. Mobile Viewership (NY Times — Easy)](./featured/02_agg-laptop-vs-mobile-viewership__ny_times__easy.sql)
+3. [Teams Power Users (Microsoft — Easy)](./featured/03_agg-teams-power-users__microsoft__easy.sql)
+4. [Duplicate Job Listings (LinkedIn — Easy)](./featured/04_dedupe-duplicate-job-listings__linkedin__easy.sql)
+5. [User's Third Transaction (Uber — Medium)](./featured/05_window-users-third-transaction__uber__medium.sql)
+6. [Second Highest Salary (FAANG — Medium)](./featured/06_rank-second-highest-salary__faang__medium.sql)
+7. [Top Three Salaries (FAANG — Medium)](./featured/07_rank-top-three-salaries__faang__medium.sql)
+8. [Signup Activation Rate (TikTok — Medium)](./featured/08_retention-signup-activation-rate__tiktok__medium.sql)
+9. [Active User Retention (Facebook — Hard)](./featured/09_retention-active-user-retention__facebook__hard.sql)
+10. [Y-on-Y Growth Rate (Wayfair — Hard)](./featured/10_timeseries-yoy-growth-rate__wayfair__hard.sql)
+11. [Marketing Touch Streak (Snowflake — Hard)](./featured/11_streak-marketing-touch-streak__snowflake__hard.sql)
+12. [Median Google Search Frequency (Google — Hard)](./featured/12_stats-median-google-search-frequency__google__hard.sql)
 
 ➡️ See: [`/featured`](./featured)
 
