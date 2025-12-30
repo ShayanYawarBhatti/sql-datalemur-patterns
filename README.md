@@ -9,12 +9,14 @@ This repo is intentionally structured to be **easy for recruiters and interviewe
 ---
 
 ## Table of Contents
-- [Featured](#featured)
-- [Repo Structure](#repo-structure)
-- [Patterns Covered](#patterns-covered)
+- [Featured Solutions](#featured)
+- [Repository Structure](#repo-structure)
+- [Folder Index](#folder-index)
+- [SQL Skills Demonstrated](#what-this-demonstrates-sql-skills)
+- [Advanced Concepts Covered](#advanced-sql-concepts-covered)
+- [How to Use This Repo](#how-to-use-this-repo)
 - [Naming Convention](#naming-convention)
 - [How to Read a Solution](#how-to-read-a-solution)
-- [Folder Index](#folder-index)
 - [Disclaimer](#disclaimer)
 
 ---
@@ -55,16 +57,87 @@ Solutions are organized by SQL pattern:
 
 ---
 
-## Patterns Covered
-- Aggregations & distributions (histograms, compressed stats)
-- Joins & anti-joins
-- Window functions (rolling averages, lag/lead)
-- Ranking (top-N, ties)
-- Time-series growth (MoM/YoY logic)
-- Retention & activation
-- Sessionization & streak detection
-- Transformations & data cleaning
-- Business logic / multi-step reasoning
+## Folder Index
+- Aggregations & Histograms: [`01_aggregations_histograms`](./01_aggregations_histograms)
+- Joins & Anti-joins: [`02_joins_antijoins`](./02_joins_antijoins)
+- Window + Rank + Top-N: [`03_window_rank_topn`](./03_window_rank_topn)
+- Time-Series & Growth: [`04_time_series_growth`](./04_time_series_growth)
+- Retention & Activation: [`05_retention_activation`](./05_retention_activation)
+- Sessionization & Streaks: [`06_sessionization_streaks`](./06_sessionization_streaks)
+- Transformations & Cleaning: [`07_transformations_cleaning`](./07_transformations_cleaning)
+- Business Logic (Hard / Mixed): [`08_business_logic_mixed`](./08_business_logic_mixed)
+
+---
+
+## What this demonstrates (SQL skills)
+
+Across these solutions, I repeatedly practiced:
+
+### Query fundamentals
+- `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`
+- conditional logic with `CASE WHEN`
+- correct handling of `NULL`s, duplicates, and edge cases
+
+### Aggregations & analytics
+- conditional aggregation (`COUNT(*) FILTER`, `SUM(CASE WHEN ...)`)
+- percent/rate metrics, weighted averages
+- cohort-style metrics and retention calculations
+
+### Joins (including tricky interview patterns)
+- `INNER`, `LEFT`, `ANTI-JOIN` patterns (`LEFT JOIN ... WHERE right IS NULL`)
+- de-duplication before joining (CTEs / window ranks)
+
+### Window functions
+- `ROW_NUMBER`, `RANK`, `DENSE_RANK`
+- running totals, rolling averages, moving windows
+- “top-N per group” and “latest row per user” patterns
+
+### Time-series & growth
+- period-over-period comparisons (WoW / MoM / YoY)
+- `LAG/LEAD`-based deltas, alignment by date/month
+
+### Hard patterns
+- sessionization / streaks (consecutive-day logic)
+- “sweep line” concurrency (start/end events + running sum)
+- multi-CTE pipelines with intermediate validation
+
+---
+
+## Advanced SQL concepts covered
+
+- **Window frames:** rolling averages / moving windows (`ROWS BETWEEN ...`)
+- **Ranking & tie logic:** `ROW_NUMBER` vs `RANK` vs `DENSE_RANK`
+- **Top-N per group:** keep top rows per partition (with or without ties)
+- **Retention/cohorts:** activation + returning-user metrics
+- **Sessionization & streaks:** consecutive-day and session boundary logic
+- **Concurrency:** sweep-line technique (start/+1, end/-1 → running sum)
+- **Multi-step transformations:** CTE pipelines with intermediate validation
+- **Anti-joins:** find entities with “no match” using `LEFT JOIN ... IS NULL`
+- **Time-series comparisons:** `LAG/LEAD`, YoY/WoW deltas, month alignment
+- **Data correctness:** null handling, de-duplication, numeric casting to avoid integer division
+
+---
+
+## How to use this repo
+
+### If you're a recruiter / interviewer
+Start here:
+1. **Featured** for the fastest scan
+2. `03_window_rank_topn/` for window/ranking depth
+3. `05_retention_activation/` and `06_sessionization_streaks/` for advanced analytics patterns
+4. `08_business_logic_mixed/` for harder multi-step reasoning
+
+Each solution file includes:
+- a short summary in my own words
+- problem metadata (company, difficulty, access)
+- my SQL solution
+
+### If you're me (review workflow)
+- I review by folder/pattern using each folder’s index file.
+- I search keywords across the repo:
+  - `rank`, `dense_rank`, `row_number`
+  - `anti join`, `left join`, `is null`
+  - `lag`, `lead`, `rolling`, `yoy`, `retention`, `streak`, `session`
 
 ---
 
@@ -92,19 +165,6 @@ Each `.sql` starts with a short header:
 
 ---
 
-## Folder Index
-- Aggregations & Histograms: [`01_aggregations_histograms`](./01_aggregations_histograms)
-- Joins & Anti-joins: [`02_joins_antijoins`](./02_joins_antijoins)
-- Window + Rank + Top-N: [`03_window_rank_topn`](./03_window_rank_topn)
-- Time-Series & Growth: [`04_time_series_growth`](./04_time_series_growth)
-- Retention & Activation: [`05_retention_activation`](./05_retention_activation)
-- Sessionization & Streaks: [`06_sessionization_streaks`](./06_sessionization_streaks)
-- Transformations & Cleaning: [`07_transformations_cleaning`](./07_transformations_cleaning)
-- Business Logic (Hard / Mixed): [`08_business_logic_mixed`](./08_business_logic_mixed)
-
----
-
 ## Disclaimer
-This repository is a personal learning and demonstration artifact.
-Problem summaries are written in my own words; solutions reflect my approach and notes.
-For premium questions, no prompt text, schemas, or examples are included.
+This repository is for personal learning and interview preparation.  
+All problem statements, schemas, sample data, and platform content belong to their respective owners (e.g., DataLemur). I do **not** reproduce prompt text, schemas, examples, or test cases—only my own summaries and original SQL solutions.
