@@ -1,6 +1,6 @@
 # SQL Patterns (DataLemur Practice: Top 50)
 
-A curated collection of **50 SQL interview-style solutions**, organized by **reusable patterns** (window functions, ranking, retention, sessionization, time-series growth, etc.).
+A curated collection of my **top 50 SQL interview-style solutions**, organized by **reusable patterns** (window functions, ranking, retention, sessionization, time-series growth, etc.).
 
 This repo is intentionally structured to be **easy for recruiters and interviewers to scan** and for me to quickly review common query patterns.
 
