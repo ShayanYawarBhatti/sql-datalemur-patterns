@@ -1,3 +1,8 @@
+## Author
+Shayan Yawar Bhatti — Data Analyst @ IntelliLight AI  
+LinkedIn: https://www.linkedin.com/in/shayan-yawar-bhatti/  
+GitHub: https://github.com/ShayanYawarBhatti
+
 # SQL Patterns (DataLemur Practice: Top 50)
 
 A curated collection of my **top 50 SQL interview-style solutions**, organized by **reusable patterns** (window functions, ranking, retention, sessionization, time-series growth, etc.).
