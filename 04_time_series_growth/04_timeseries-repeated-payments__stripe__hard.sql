@@ -1,22 +1,19 @@
 -- Title: Repeated Payments
 -- Company: Stripe
 -- Difficulty: Hard
--- Access: Free
--- Pattern: time series + dedupe / window (repeat detection)
--- Summary: Detect repeated payments (e.g., same merchant/amount) within a time window by ordering transactions and comparing to prior events.
--- Notes: Often solved with LAG to compare current vs previous payment attributes; apply time-diff condition and filter repeats.
--- Dialect: PostgreSQL
+-- Pattern: LAG + interval comparison
+-- Summary: Count repeated payments occurring within ten minutes of a matching prior payment.
+-- Notes: Compare each timestamp with the previous transaction sharing merchant, card, and amount.
 
 WITH payments AS (
-  SELECT 
-    merchant_id, 
-    EXTRACT(EPOCH FROM transaction_timestamp - 
-      LAG(transaction_timestamp) OVER(
-        PARTITION BY merchant_id, credit_card_id, amount 
-        ORDER BY transaction_timestamp)
-    )/60 AS minute_difference 
-  FROM transactions) 
+  SELECT
+    transaction_timestamp - LAG(transaction_timestamp) OVER (
+      PARTITION BY merchant_id, credit_card_id, amount
+      ORDER BY transaction_timestamp
+    ) AS time_since_previous
+  FROM transactions
+)
 
-SELECT COUNT(merchant_id) AS payment_count
-FROM payments 
-WHERE minute_difference <= 10;
+SELECT COUNT(*) AS payment_count
+FROM payments
+WHERE time_since_previous <= INTERVAL '10 minutes';
